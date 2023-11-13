@@ -1,0 +1,124 @@
+[[exercises]]
+name = "strings1"
+path = "exercises/09_strings/strings1.rs"
+mode = "compile"
+hint = """
+The `current_favorite_color` function is currently returning a string slice
+with the `'static` lifetime. We know this because the data of the string lives
+in our code itself -- it doesn't come from a file or user input or another
+program -- so it will live as long as our program lives.
+
+But it is still a string slice. There's one way to create a `String` by
+converting a string slice covered in the Strings chapter of the book, and
+another way that uses the `From` trait."""
+
+[[exercises]]
+name = "strings2"
+path = "exercises/09_strings/strings2.rs"
+mode = "compile"
+hint = """
+Yes, it would be really easy to fix this by just changing the value bound to
+`word` to be a string slice instead of a `String`, wouldn't it?? There is a way
+to add one character to the `if` statement, though, that will coerce the
+`String` into a string slice.
+
+Side note: If you're interested in learning about how this kind of reference
+conversion works, you can jump ahead in the book and read this part in the
+smart pointers chapter:
+https://doc.rust-lang.org/stable/book/ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods"""
+
+[[exercises]]
+name = "strings3"
+path = "exercises/09_strings/strings3.rs"
+mode = "test"
+hint = """
+There's tons of useful standard library functions for strings. Let's try and use some of them:
+https://doc.rust-lang.org/std/string/struct.String.html#method.trim
+
+For the `compose_me` method: You can either use the `format!` macro, or convert
+the string slice into an owned string, which you can then freely extend."""
+
+[[exercises]]
+name = "strings4"
+path = "exercises/09_strings/strings4.rs"
+mode = "compile"
+hint = "No hints this time ;)"
+
+[[exercises]]
+name = "vecs1"
+path = "exercises/05_vecs/vecs1.rs"
+mode = "test"
+hint = """
+In Rust, there are two ways to define a Vector.
+1. One way is to use the `Vec::new()` function to create a new vector
+   and fill it with the `push()` method.
+2. The second way, which is simpler is to use the `vec![]` macro and
+   define your elements inside the square brackets.
+
+Check this chapter: https://doc.rust-lang.org/stable/book/ch08-01-vectors.html
+of the Rust book to learn more.
+"""
+
+[[exercises]]
+name = "vecs2"
+path = "exercises/05_vecs/vecs2.rs"
+mode = "test"
+hint = """
+In the first function we are looping over the Vector and getting a reference to
+one `element` at a time.
+
+To modify the value of that `element` we need to use the `*` dereference
+operator. You can learn more in this chapter of the Rust book:
+https://doc.rust-lang.org/stable/book/ch08-01-vectors.html#iterating-over-the-values-in-a-vector
+
+In the second function this dereferencing is not necessary, because the `map`
+function expects the new value to be returned.
+
+After you've completed both functions, decide for yourself which approach you
+like better.
+
+What do you think is the more commonly used pattern under Rust developers?
+"""
+
+[[exercises]]
+name = "hashmaps1"
+path = "exercises/11_hashmaps/hashmaps1.rs"
+mode = "test"
+hint = """
+Hint 1: Take a look at the return type of the function to figure out
+        the type for the `basket`.
+
+Hint 2: Number of fruits should be at least 5. And you have to put
+        at least three different types of fruits.
+"""
+
+[[exercises]]
+name = "hashmaps2"
+path = "exercises/11_hashmaps/hashmaps2.rs"
+mode = "test"
+hint = """
+Use the `entry()` and `or_insert()` methods of `HashMap` to achieve this.
+Learn more at https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#only-inserting-a-value-if-the-key-has-no-value
+"""
+
+[[exercises]]
+name = "hashmaps3"
+path = "exercises/11_hashmaps/hashmaps3.rs"
+mode = "test"
+hint = """
+Hint 1: Use the `entry()` and `or_insert()` methods of `HashMap` to insert
+        entries corresponding to each team in the scores table.
+
+Learn more at https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#only-inserting-a-value-if-the-key-has-no-value
+
+Hint 2: If there is already an entry for a given key, the value returned by
+        `entry()` can be updated based on the existing value.
+
+Learn more at https://doc.rust-lang.org/book/ch08-03-hash-maps.html#updating-a-value-based-on-the-old-value
+"""
+
+[[exercises]]
+name = "quiz2"
+path = "exercises/quiz2.rs"
+mode = "test"
+hint = "No hints this time ;)"

@@ -1,0 +1,78 @@
+[[exercises]]
+name = "generics1"
+path = "exercises/14_generics/generics1.rs"
+mode = "compile"
+hint = """
+Vectors in Rust make use of generics to create dynamically sized arrays of any
+type.
+
+You need to tell the compiler what type we are pushing onto this vector."""
+
+[[exercises]]
+name = "generics2"
+path = "exercises/14_generics/generics2.rs"
+mode = "test"
+hint = """
+Currently we are wrapping only values of type `u32`.
+
+Maybe we could update the explicit references to this data type somehow?
+
+If you are still stuck https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#in-method-definitions
+"""
+
+[[exercises]]
+name = "traits4"
+path = "exercises/15_traits/traits4.rs"
+mode = "test"
+hint = """
+Instead of using concrete types as parameters you can use traits. Try replacing
+the '??' with 'impl <what goes here?>'
+
+See the documentation at: https://doc.rust-lang.org/book/ch10-02-traits.html#traits-as-parameters
+"""
+
+[[exercises]]
+name = "traits5"
+path = "exercises/15_traits/traits5.rs"
+mode = "compile"
+hint = """
+To ensure a parameter implements multiple traits use the '+ syntax'. Try
+replacing the '??' with 'impl <> + <>'.
+
+See the documentation at: https://doc.rust-lang.org/book/ch10-02-traits.html#specifying-multiple-trait-bounds-with-the--syntax
+"""
+
+[[exercises]]
+name = "errors5"
+path = "exercises/13_error_handling/errors5.rs"
+mode = "compile"
+hint = """
+There are two different possible `Result` types produced within `main()`, which
+are propagated using `?` operators. How do we declare a return type from
+`main()` that allows both?
+
+Under the hood, the `?` operator calls `From::from` on the error value to
+convert it to a boxed trait object, a `Box<dyn error::Error>`. This boxed trait
+object is polymorphic, and since all errors implement the `error::Error` trait,
+we can capture lots of different errors in one "Box" object.
+
+Check out this section of the book:
+https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator
+
+Read more about boxing errors:
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html
+
+Read more about using the `?` operator with boxed errors:
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html
+"""
+
+[[exercises]]
+name = "quiz3"
+path = "exercises/quiz3.rs"
+mode = "test"
+hint = """
+To find the best solution to this challenge you're going to need to think back
+to your knowledge of traits, specifically 'Trait Bound Syntax'
+
+You may also need this: `use std::fmt::Display;`."""
+

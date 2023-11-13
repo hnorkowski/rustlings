@@ -1,0 +1,75 @@
+[[exercises]]
+name = "modules1"
+path = "exercises/10_modules/modules1.rs"
+mode = "compile"
+hint = """
+Everything is private in Rust by default-- but there's a keyword we can use
+to make something public! The compiler error should point to the thing that
+needs to be public."""
+
+[[exercises]]
+name = "modules2"
+path = "exercises/10_modules/modules2.rs"
+mode = "compile"
+hint = """
+The delicious_snacks module is trying to present an external interface that is
+different than its internal structure (the `fruits` and `veggies` modules and
+associated constants). Complete the `use` statements to fit the uses in main and
+find the one keyword missing for both constants.
+
+Learn more at https://doc.rust-lang.org/book/ch07-04-bringing-paths-into-scope-with-the-use-keyword.html#re-exporting-names-with-pub-use"""
+
+[[exercises]]
+name = "modules3"
+path = "exercises/10_modules/modules3.rs"
+mode = "compile"
+hint = """
+`UNIX_EPOCH` and `SystemTime` are declared in the `std::time` module. Add a
+`use` statement for these two to bring them into scope. You can use nested
+paths or the glob operator to bring these two in using only one line."""
+
+[[exercises]]
+name = "macros1"
+path = "exercises/21_macros/macros1.rs"
+mode = "compile"
+hint = """
+When you call a macro, you need to add something special compared to a
+regular function call. If you're stuck, take a look at what's inside
+`my_macro`."""
+
+[[exercises]]
+name = "macros2"
+path = "exercises/21_macros/macros2.rs"
+mode = "compile"
+hint = """
+Macros don't quite play by the same rules as the rest of Rust, in terms of
+what's available where.
+
+Unlike other things in Rust, the order of "where you define a macro" versus
+"where you use it" actually matters."""
+
+[[exercises]]
+name = "macros3"
+path = "exercises/21_macros/macros3.rs"
+mode = "compile"
+hint = """
+In order to use a macro outside of its module, you need to do something
+special to the module to lift the macro out into its parent.
+
+The same trick also works on "extern crate" statements for crates that have
+exported macros, if you've seen any of those around."""
+
+[[exercises]]
+name = "macros4"
+path = "exercises/21_macros/macros4.rs"
+mode = "compile"
+hint = """
+You only need to add a single character to make this compile.
+
+The way macros are written, it wants to see something between each "macro arm",
+so it can separate them.
+
+That's all the macro exercises we have in here, but it's barely even scratching
+the surface of what you can do with Rust's macros. For a more thorough
+introduction, you can have a read through 'The Little Book of Rust Macros':
+https://veykril.github.io/tlborm/"""
