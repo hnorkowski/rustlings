@@ -29,6 +29,9 @@ mod verify;
 #[derive(Parser)]
 #[command(version)]
 struct Args {
+    /// TOML file containing rustlings exercises
+    #[arg(index = 1)]
+    exercises: String,
     /// Show outputs from the test exercises
     #[arg(long)]
     nocapture: bool,
@@ -91,7 +94,11 @@ fn main() {
         println!("\n{WELCOME}\n");
     }
 
-    if !Path::new("info.toml").exists() {
+    let exercises_path = args.exercises + ".toml";
+    let exercises_path = Path::new(&exercises_path);
+
+    if !exercises_path.exists() {
+        println!("Cannot find {:?}.", exercises_path);
         println!(
             "{} must be run from the rustlings directory",
             std::env::current_exe().unwrap().to_str().unwrap()
@@ -107,7 +114,7 @@ fn main() {
         std::process::exit(1);
     }
 
-    let toml_str = &fs::read_to_string("info.toml").unwrap();
+    let toml_str = &fs::read_to_string(exercises_path).unwrap();
     let exercises = toml::from_str::<ExerciseList>(toml_str).unwrap().exercises;
     let verbose = args.nocapture;
 
@@ -463,12 +470,14 @@ const FENISH_LINE: &str = "+----------------------------------------------------
        ▒▒  ▒▒    ▒▒                  ▒▒    ▒▒  ▒▒
            ▒▒  ▒▒                      ▒▒  ▒▒\x1b[0m
 
-We hope you enjoyed learning about the various aspects of Rust!
-If you noticed any issues, please don't hesitate to report them to our repo.
-You can also contribute your own exercises to help the greater community!
-
-Before reporting an issue or contributing, please read our guidelines:
-https://github.com/rust-lang/rustlings/blob/main/CONTRIBUTING.md";
+Until the talk continues you can:
+    - find more tasks in taskset 'other'
+    - set yourself your own task
+    - try solving advent-of-code tasks
+    - asks how others solved the tasks
+    - help others who are stuck
+    - get a tee or coffee
+    - take a break";
 
 const WELCOME: &str = r"       welcome to...
                  _   _ _
