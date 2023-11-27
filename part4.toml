@@ -87,3 +87,9 @@ to be adjusted.
 Can you figure out how?
 
 Another hint: it has to do with the `&` character."""
+
+[[exercises]]
+name = "strings4"
+path = "exercises/09_strings/strings4.rs"
+mode = "compile"
+hint = "No hints this time ;)"
